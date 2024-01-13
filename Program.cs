@@ -14,3 +14,31 @@ for (int i = 0; i < n; i++)
     array[i] = Console.ReadLine();
 }
 string[] newArray = GetShortStrings(array);
+Console.WriteLine("Новый массив из строк, длина которых меньше или равна 3 символам:");
+foreach (string str in newArray)
+{
+    Console.WriteLine(str);
+}
+static string[] GetShortStrings(string[] array)
+{
+    int count = 0;
+    foreach (string str in array)
+    {
+        if (str.Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] newArray = new string[count];
+    int index = 0;
+    foreach (string str in array)
+    {
+        if (str.Length <= 3)
+        {
+            newArray[index] = str;
+            index++;
+        }
+    }
+
+    return newArray;
+}
